@@ -29,6 +29,7 @@ public class AuthorizeController {
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser user = githubProvider.getUser(accessToken);
         System.out.println(user.getName());
+        System.out.println("This is a test for git commit");
         return "index";
     }
 }
