@@ -1,7 +1,6 @@
 package com.lzc.community.controller;
 
 import com.lzc.community.dto.PaginationDTO;
-import com.lzc.community.dto.QuestionDTO;
 import com.lzc.community.mapper.UserMapper;
 import com.lzc.community.model.User;
 import com.lzc.community.service.QuestionService;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 @Controller
 public class IndexController {
