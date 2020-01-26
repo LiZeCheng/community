@@ -4,6 +4,7 @@ import com.lzc.community.dto.PaginationDTO;
 import com.lzc.community.dto.QuestionDTO;
 import com.lzc.community.exception.CustomizeErrorCode;
 import com.lzc.community.exception.CustomizeException;
+import com.lzc.community.mapper.QuestionExtMapper;
 import com.lzc.community.mapper.QuestionMapper;
 import com.lzc.community.mapper.UserMapper;
 import com.lzc.community.model.Question;
@@ -22,6 +23,9 @@ public class QuestionService {
 
     @Autowired
     private QuestionMapper questionMapper;
+
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     @Autowired
     private UserMapper userMapper;
@@ -145,5 +149,12 @@ public class QuestionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    public void incView(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }
